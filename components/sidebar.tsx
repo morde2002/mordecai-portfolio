@@ -48,7 +48,7 @@ export function Sidebar() {
           <div className="p-8 text-center border-b border-slate-700">
             <div className="relative w-32 h-32 mx-auto mb-4">
               <Image
-                src="/placeholder.svg?height=128&width=128"
+                src="/me.jpg?height=128&width=128"
                 alt="Mordecai Junior"
                 fill
                 className="rounded-full object-cover"

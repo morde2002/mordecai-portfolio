@@ -5,36 +5,35 @@ const services = [
   {
     icon: Globe,
     title: "Web Design",
-    description: "Responsive website design services, clients can expect more than just a visually stunning site",
+    description: "Crafting responsive, user-friendly layouts that combine modern aesthetics with seamless usability.",
   },
   {
     icon: Code,
-    title: "Web Development",
-    description:
-      "When it comes to Web Development Services, I offer a comprehensive suite of services tailored to meet diverse client needs.",
+    title: "Front-End Development",
+    description: "Building scalable and performant web apps using React.js, Next.js, and modern JavaScript frameworks.",
   },
   {
     icon: Palette,
-    title: "Graphic Design",
-    description:
-      "UX/UI Design Enhancement, Brand Identity Development and Strategic Visual Communication are the Key Offerings and Specializations",
+    title: "UI/UX Design",
+    description: "Designing intuitive user experiences and interfaces, transforming ideas into pixel-perfect, interactive designs.",
   },
   {
     icon: Brush,
-    title: "Logo Design",
-    description: "Innovation, weaving strategic vision with creative ingenuity to sculpt iconic brand identities",
+    title: "Logo & Brand Design",
+    description: "Delivering unique logos and visual identities that resonate with your audience and define your brand.",
   },
   {
     icon: Settings,
-    title: "Website Management",
-    description: "Optimal website performance, security, and growth.",
+    title: "Website Maintenance",
+    description: "Ongoing support for updates, performance tuning, backups, and security — keeping your site reliable and fresh.",
   },
   {
     icon: Server,
-    title: "Freelancing Services",
-    description: "Data entry, content writing, social account management.",
+    title: "Freelance Support",
+    description: "Offering flexible freelance services in design, content, admin support, and social media account management.",
   },
 ]
+
 
 export function Services() {
   return (

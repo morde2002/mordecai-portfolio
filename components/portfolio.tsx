@@ -13,7 +13,7 @@ const portfolioItems = [
     id: 1,
     title: "Hisia Youth C.B.O Website",
     category: "designs",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/portfolio1.png?height=300&width=400",
     description: "Community-based organization website with modern design",
     link: "https://morde2002.github.io/hisiayouth.github.io/",
     tags: ["HTML", "CSS", "JavaScript"],
@@ -22,7 +22,7 @@ const portfolioItems = [
     id: 2,
     title: "Baraka Mining Website",
     category: "designs",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/portfolio2.png?height=300&width=400",
     description: "Corporate website for mining company",
     link: "https://barakaminingltd.co.ke",
     tags: ["WordPress", "PHP", "MySQL"],
@@ -31,7 +31,7 @@ const portfolioItems = [
     id: 3,
     title: "XeleratedTech Website",
     category: "designs",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/portfolio3.png?height=300&width=400",
     description: "Technology company portfolio website",
     link: "#",
     tags: ["React", "Next.js", "Tailwind"],
@@ -40,7 +40,7 @@ const portfolioItems = [
     id: 4,
     title: "Texol Energy Company Website",
     category: "designs",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/portfolio8.png?height=300&width=400",
     description: "Energy company corporate website",
     link: "https://morde2002.github.io/texoldemo.github.io/",
     tags: ["HTML", "CSS", "Bootstrap"],
@@ -49,7 +49,7 @@ const portfolioItems = [
     id: 5,
     title: "Personal Portfolio v1",
     category: "portfolios",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/portfolio5.png?height=300&width=400",
     description: "First iteration of personal portfolio",
     link: "#",
     tags: ["HTML", "CSS", "JavaScript"],
@@ -58,7 +58,7 @@ const portfolioItems = [
     id: 6,
     title: "Personal Portfolio v2",
     category: "portfolios",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/portfolio4.png?height=300&width=400",
     description: "Second iteration with improved design",
     link: "#",
     tags: ["React", "Styled Components"],
@@ -67,34 +67,25 @@ const portfolioItems = [
     id: 7,
     title: "Creative Portfolio",
     category: "portfolios",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/portfolio10.png?height=300&width=400",
     description: "Creative portfolio with animations",
-    link: "#",
+    link: "https://edgeanimateux.vercel.app/",
     tags: ["Vue.js", "GSAP", "CSS3"],
   },
   {
     id: 8,
     title: "Modern Portfolio",
     category: "portfolios",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/portfolio9.png?height=300&width=400",
     description: "Modern portfolio with dark theme",
     link: "#",
     tags: ["Next.js", "Tailwind", "Framer Motion"],
   },
   {
     id: 9,
-    title: "E-commerce Dashboard",
-    category: "others",
-    image: "/placeholder.svg?height=300&width=400",
-    description: "Admin dashboard for e-commerce platform",
-    link: "#",
-    tags: ["React", "Chart.js", "Material-UI"],
-  },
-  {
-    id: 10,
     title: "Mobile App UI",
     category: "others",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "/portfolio6.png?height=300&width=400",
     description: "Mobile application user interface design",
     link: "#",
     tags: ["Figma", "UI/UX", "Mobile Design"],
@@ -154,8 +145,10 @@ export function Portfolio() {
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex space-x-4">
                     <Button size="sm" variant="secondary">
+                      <Link href={item.image} target="_blank" rel="noopener noreferrer">
+                        View
+                      </Link>
                       <Eye className="h-4 w-4 mr-2" />
-                      View
                     </Button>
                     {item.link !== "#" && (
                       <Button size="sm" variant="secondary" asChild>

@@ -6,7 +6,7 @@ import { Calendar, Globe, Phone, MapPin, Mail, User } from "lucide-react"
 export function About() {
   const personalInfo = [
     { icon: Calendar, label: "Birthday", value: "30th July 2002" },
-    { icon: Globe, label: "Website", value: "www.xeleratedtech.com", link: "https://xeleratedtech.com" },
+    { icon: Globe, label: "Website", value: "edgeanimateux.vercel.app", link: "https://edgeanimateux.vercel.app/" },
     { icon: Phone, label: "Phone", value: "+254 115 588218", link: "tel:+254115588218" },
     { icon: MapPin, label: "City", value: "Mombasa, Kenya" },
     { icon: User, label: "Age", value: "22" },
@@ -19,7 +19,7 @@ export function About() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">About Me</h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            A dedicated professional deeply immersed in the world of web design, development, and programming.
+            A dedicated front-end developer specializing in React.js, Next.js, and React Native, with a strong focus on building dynamic dashboards, world class websites, intuitive UI designs, and engaging app experiences..
           </p>
         </div>
 
@@ -27,7 +27,7 @@ export function About() {
           <div className="relative">
             <div className="relative w-full max-w-md mx-auto">
               <Image
-                src="/placeholder.svg?height=500&width=400"
+                src="/me.jpg?height=500&width=400"
                 alt="Mordecai Junior"
                 width={400}
                 height={500}
@@ -41,12 +41,13 @@ export function About() {
 
           <div className="space-y-8">
             <div>
-              <h3 className="text-3xl font-bold text-slate-900 mb-4">Web Designer & Developer</h3>
+              <h3 className="text-3xl font-bold text-slate-900 mb-4">Front-End Developer & UI Specialist</h3>
               <p className="text-slate-600 mb-6 leading-relaxed">
-                In the fast-paced world of web technologies, I am always eager to learn and grow. Staying updated with
-                the latest trends and tools is not just a habit but a passion. This continuous learning allows me to
-                incorporate cutting-edge techniques into my work, ensuring that my clients receive websites that are not
-                only modern but also innovative in every sense.
+                As a front-end developer specializing in React.js, Next.js, and React Native, 
+                I bring interfaces to life through responsive dashboards and seamless app designs. 
+                I'm driven by a passion for clean code and captivating user experiences. 
+                Continuously exploring the latest tech trends, I ensure every project is 
+                modern, performant, and user-focused.
               </p>
             </div>
 
@@ -82,10 +83,11 @@ export function About() {
 
             <div>
               <p className="text-slate-600 leading-relaxed">
-                I take immense pride in my ability to design visually striking and user-friendly websites. Utilizing my
-                skills in HTML, CSS, and JavaScript, I create responsive interfaces that ensure seamless navigation and
-                an enjoyable user experience. Additionally, my expertise extends to back-end development, where
-                languages like Python, PHP, and Ruby enable me to build powerful and dynamic web applications.
+                I take pride in designing visually engaging, intuitive, and responsive user interfaces. 
+                With a strong foundation in React.js, Next.js, and React Native, 
+                I build seamless web and mobile experiences that prioritize performance and usability. 
+                From dynamic dashboards to interactive app designs, I focus on delivering clean, scalable code 
+                that brings ideas to life with precision and creativity.
               </p>
             </div>
 

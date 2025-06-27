@@ -2,13 +2,21 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 
 const skills = [
-  { name: "HTML", level: 100 },
-  { name: "CSS", level: 90 },
-  { name: "JavaScript", level: 75 },
-  { name: "PHP", level: 80 },
-  { name: "WordPress/CMS", level: 90 },
-  { name: "Photoshop", level: 55 },
+  { name: "React.js", level: 95 },
+  { name: "Next.js", level: 90 },
+  { name: "React Native", level: 85 },
+  { name: "JavaScript (ES6+)", level: 90 },
+  { name: "HTML5", level: 100 },
+  { name: "CSS3 / Tailwind CSS", level: 95 },
+  { name: "Node.js (Backend)", level: 80 },
+  { name: "MongoDB", level: 75 },
+  { name: "Git & Version Control", level: 85 },
+  { name: "Figma to Code", level: 80 },
+  { name: "WordPress / CMS", level: 75 },
+  { name: "Photoshop (UI Assets)", level: 60 },
 ]
+
+
 
 export function Skills() {
   return (

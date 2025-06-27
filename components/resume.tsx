@@ -7,43 +7,41 @@ const education = [
     degree: "Diploma in Information & Technology",
     period: "2021 - 2023",
     institution: "Mount Kenya University, Mombasa, Kenya",
-    description: "Successfully completed university diploma with Honors designation, achieving credit 1 honors",
+    description: "Graduated with Honors, gaining a strong foundation in software development, networking, and IT systems.",
   },
   {
-    degree: "Secondary Education",
+    degree: "Kenya Certificate of Secondary Education",
     period: "2016 - 2019",
     institution: "Mombasa Baptist High School, Mombasa, Kenya",
-    description: "Obtained Kenya Certificate of Secondary Education",
+    description: "Completed secondary education with a strong focus on computing and sciences.",
   },
 ]
 
 const experience = [
   {
-    title: "Web Design Specialist",
+    title: "Front-End Developer & UI/UX Designer",
     period: "2019 - Present",
     location: "Mombasa, Kenya",
     achievements: [
-      "My 5 years extensive background experience equips me to handle diverse projects, ensuring each one is crafted with precision and creativity.",
-      "My pricing model is designed to ensure that businesses of varying sizes can access high-quality web design services.",
-      "Incorporating UI/UX principles, I ensure that the websites I create are not only visually appealing but also intuitive and user-friendly.",
-      "Specializing in responsive web design, guaranteeing that your website looks and functions flawlessly across all devices.",
+      "5+ years of hands-on experience crafting modern UIs using React.js, Next.js, and React Native.",
+      "Designed and built interactive dashboards and responsive applications with a focus on performance and usability.",
+      "Integrated APIs and back-end services using Node.js and MongoDB for full-stack development.",
+      "Delivered tailored solutions to startups, SMEs, and NGOs, adapting design systems to client needs.",
     ],
   },
   {
-    title: "Programmer",
+    title: "Software Developer",
     period: "2017 - Present",
     location: "Mombasa, Kenya",
     achievements: [
-      "Starting with VB language 8 years ago, my journey has evolved, allowing me to stay at the forefront of programming trends and technologies.",
-      "Undertook substantial programming projects, including the development of a school election voting system during my high school days.",
-      "My proficiency extends to languages like Java, Python, and JavaScript, enabling me to tackle a wide range of projects and challenges.",
-      "Successfully designed and implemented a dynamic website for a basketball team.",
-      "During my internship program, I collaborated closely with my supervisor, contributing to the enhancement of his systems.",
-      "Managed up to 5 projects or tasks at a given time while under pressure",
-      "I prioritize a client-focused approach, actively engaging with stakeholders to understand their requirements.",
+      "Began programming with VB; now proficient in JavaScript (ES6+), Python, and Node.js.",
+      "Built real-world apps including a digital voting system, basketball team website, and internal tools during internships.",
+      "Collaborated with supervisors and project teams to improve business and institutional systems.",
+      "Demonstrated time management by handling up to 5 concurrent client and internal projects under tight deadlines.",
     ],
   },
 ]
+
 
 export function Resume() {
   return (
@@ -62,12 +60,10 @@ export function Resume() {
               <div className="border-l-4 border-blue-600 pl-6">
                 <h4 className="text-xl font-semibold text-slate-900 mb-3">Mordecai Junior</h4>
                 <p className="text-slate-600 mb-4 leading-relaxed">
-                  I am a highly skilled web designer, developer, and programmer proficient in an array of technologies
-                  and programming languages. My expertise encompasses front-end development using HTML, CSS, and
-                  JavaScript, creating responsive and interactive interfaces. I have hands-on experience with JavaScript
-                  frameworks such as React.js and jQuery, enhancing web applications' efficiency and interactivity. In
-                  back-end development, I excel in Python, PHP, ensuring robust server-side functionality and seamless
-                  database management with MySQL.
+                  I’m a front-end developer passionate about crafting modern, responsive, and user-centric digital experiences.
+                  Proficient in React.js, Next.js, and React Native, I specialize in designing clean UI interfaces, interactive dashboards, and mobile apps.
+                  With practical experience in Node.js and MongoDB, I also contribute to full-stack solutions that are scalable and efficient.
+                  I continuously seek to learn and apply the latest web technologies to bring ideas to life.
                 </p>
                 <div className="space-y-2 text-slate-600">
                   <p>📍 Mombasa, Kenya</p>
@@ -77,6 +73,7 @@ export function Resume() {
               </div>
             </CardContent>
           </Card>
+
 
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Education */}

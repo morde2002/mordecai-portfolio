@@ -19,12 +19,12 @@ The design incorporates clean lines, strategic use of whitespace, and a carefull
 
 Key features include a dynamic portfolio showcase, integrated contact forms, and a content management system that allows the client to easily update their services and case studies. The website successfully positions XeleratedTech as a leader in their industry while providing an intuitive user experience for potential clients.`,
   images: [
-    "/placeholder.svg?height=600&width=800",
-    "/placeholder.svg?height=600&width=800",
-    "/placeholder.svg?height=600&width=800",
-    "/placeholder.svg?height=600&width=800",
-    "/placeholder.svg?height=600&width=800",
-    "/placeholder.svg?height=600&width=800",
+    "/portfolio1.png?height=600&width=800",
+    "/portfolio2.png?height=600&width=800",
+    "/portfolio3.png?height=600&width=800",
+    "/portfolio4.png?height=600&width=800",
+    "/portfolio5.png?height=600&width=800",
+    "/portfolio6.png?height=600&width=800",
   ],
   technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Framer Motion"],
   features: [
