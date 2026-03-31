@@ -1,178 +1,137 @@
 "use client"
 
-import { useState } from "react"
 import Image from "next/image"
-import Link from "next/link"
-import { Card, CardContent } from "@/components/ui/card"
+import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ExternalLink, Eye } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 
-const portfolioItems = [
+const projects = [
   {
-    id: 1,
-    title: "Hisia Youth C.B.O Website",
-    category: "designs",
-    image: "/portfolio1.png?height=300&width=400",
-    description: "Community-based organization website with modern design",
+    title: "All Ladies Martial Arts Academy",
+    category: "Women's Martial Arts",
+    description:
+      "Premier women-only martial arts academy in Mombasa, led by World Championship Bronze Medalist, empowering women through self-defense and competitive martial arts training.",
+    image: "/ALMA Website.webp",
+    link: "https://allladiestimd.com/",
+    tags: ["Next.js", "React", "Tailwind CSS", "Schema.org"],
+  },
+  {
+    title: "Hisia Youth Website",
+    category: "Non-Profit Website",
+    description:
+      "Community-focused platform for Hisia Youth Guiding and Counselling CBO, empowering youth development and mentorship programs in Likoni sub-county.",
+    image: "/Hisia Youth Website.webp",
     link: "https://morde2002.github.io/hisiayouth.github.io/",
-    tags: ["HTML", "CSS", "JavaScript"],
+    tags: ["Next.js", "React", "Tailwind CSS", "CMS"],
   },
   {
-    id: 2,
-    title: "Baraka Mining Website",
-    category: "designs",
-    image: "/portfolio2.png?height=300&width=400",
-    description: "Corporate website for mining company",
+    title: "Baraka Mining Portal",
+    category: "Business Website",
+    description:
+      "Professional mining company website showcasing sustainable gem mining operations and rare mineral exploration services across Kenya.",
+    image: "/Baraka MIning Website.webp",
     link: "https://barakaminingltd.co.ke",
-    tags: ["WordPress", "PHP", "MySQL"],
+    tags: ["React", "Node.js", "MongoDB", "Responsive Design"],
   },
   {
-    id: 3,
-    title: "XeleratedTech Website",
-    category: "designs",
-    image: "/portfolio3.png?height=300&width=400",
-    description: "Technology company portfolio website",
-    link: "#",
-    tags: ["React", "Next.js", "Tailwind"],
+    title: "Construction Company Website",
+    category: "Corporate Website",
+    description:
+      "Professional construction business website featuring project galleries, service portfolios, and client testimonials with modern responsive design.",
+    image: "/construction website.webp",
+    link: "https://construction-website254.vercel.app/",
+    tags: ["React", "Tailwind CSS", "Framer Motion", "Vercel"],
   },
   {
-    id: 4,
-    title: "Texol Energy Company Website",
-    category: "designs",
-    image: "/portfolio8.png?height=300&width=400",
-    description: "Energy company corporate website",
-    link: "https://morde2002.github.io/texoldemo.github.io/",
-    tags: ["HTML", "CSS", "Bootstrap"],
+    title: "Safaris Adventure Platform",
+    category: "Travel & Tourism",
+    description:
+      "Comprehensive road transport and safari booking platform offering celebration packages, adventure tours, and customized travel solutions.",
+    image: "/safari website.webp",
+    link: "https://safaris-adventure.vercel.app/",
+    tags: ["Next.js", "React", "Stripe", "Google Maps API"],
   },
   {
-    id: 5,
-    title: "Personal Portfolio v1",
-    category: "portfolios",
-    image: "/portfolio5.png?height=300&width=400",
-    description: "First iteration of personal portfolio",
-    link: "#",
-    tags: ["HTML", "CSS", "JavaScript"],
+    title: "Personal Portfolio Website",
+    category: "Portfolio Website",
+    description:
+      "Modern developer portfolio showcasing skills, projects, and professional experience with interactive animations and responsive design.",
+    image: "/portfolio website.webp",
+    link: "https://morde2002.github.io/mordecaiportfolio.github.io/",
+    tags: ["HTML5", "CSS3", "JavaScript", "GSAP"],
   },
-  {
-    id: 6,
-    title: "Personal Portfolio v2",
-    category: "portfolios",
-    image: "/portfolio4.png?height=300&width=400",
-    description: "Second iteration with improved design",
-    link: "#",
-    tags: ["React", "Styled Components"],
-  },
-  {
-    id: 7,
-    title: "Creative Portfolio",
-    category: "portfolios",
-    image: "/portfolio10.png?height=300&width=400",
-    description: "Creative portfolio with animations",
-    link: "https://edgeanimateux.vercel.app/",
-    tags: ["Vue.js", "GSAP", "CSS3"],
-  },
-  {
-    id: 8,
-    title: "Modern Portfolio",
-    category: "portfolios",
-    image: "/portfolio9.png?height=300&width=400",
-    description: "Modern portfolio with dark theme",
-    link: "#",
-    tags: ["Next.js", "Tailwind", "Framer Motion"],
-  },
-  {
-    id: 9,
-    title: "Mobile App UI",
-    category: "others",
-    image: "/portfolio6.png?height=300&width=400",
-    description: "Mobile application user interface design",
-    link: "#",
-    tags: ["Figma", "UI/UX", "Mobile Design"],
-  },
-]
-
-const categories = [
-  { id: "all", label: "All" },
-  { id: "designs", label: "Designs" },
-  { id: "portfolios", label: "Portfolios" },
-  { id: "others", label: "Others" },
 ]
 
 export function Portfolio() {
-  const [activeCategory, setActiveCategory] = useState("all")
-
-  const filteredItems =
-    activeCategory === "all" ? portfolioItems : portfolioItems.filter((item) => item.category === activeCategory)
-
   return (
-    <section id="portfolio" className="py-20 bg-slate-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">Portfolio</h2>
-          <p className="text-xl text-slate-600">My Works</p>
-        </div>
+    <section id="portfolio" className="py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <h2 className="text-3xl font-bold tracking-tight mb-2">Portfolio</h2>
+          <motion.div
+            className="h-1 bg-primary rounded-full"
+            initial={{ width: 0 }}
+            whileInView={{ width: 48 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            viewport={{ once: true }}
+          />
+        </motion.div>
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <Button
-              key={category.id}
-              variant={activeCategory === category.id ? "default" : "outline"}
-              onClick={() => setActiveCategory(category.id)}
-              className="px-6 py-2"
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <motion.a
+              key={project.title}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              viewport={{ once: true }}
+              className="group block rounded-2xl border border-border overflow-hidden bg-background hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300"
             >
-              {category.label}
-            </Button>
-          ))}
-        </div>
-
-        {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((item) => (
-            <Card
-              key={item.id}
-              className="group overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-            >
-              <div className="relative overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <Image
-                  src={item.image || "/placeholder.svg"}
-                  alt={item.title}
-                  width={400}
-                  height={300}
-                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex space-x-4">
-                    <Button size="sm" variant="secondary">
-                      <Link href={item.image} target="_blank" rel="noopener noreferrer">
-                        View
-                      </Link>
-                      <Eye className="h-4 w-4 mr-2" />
-                    </Button>
-                    {item.link !== "#" && (
-                      <Button size="sm" variant="secondary" asChild>
-                        <Link href={item.link} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Visit
-                        </Link>
-                      </Button>
-                    )}
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="w-8 h-8 rounded-full bg-white/90 flex items-center justify-center">
+                    <ExternalLink className="h-3.5 w-3.5 text-foreground" />
                   </div>
                 </div>
+                <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Badge variant="secondary" className="text-xs font-normal bg-white/90 backdrop-blur-sm">
+                    {project.category}
+                  </Badge>
+                </div>
               </div>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">{item.title}</h3>
-                <p className="text-slate-600 mb-4">{item.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {item.tags.map((tag, index) => (
-                    <Badge key={index} variant="secondary" className="text-xs">
+              <div className="p-5">
+                <h3 className="font-semibold text-foreground mb-1.5">{project.title}</h3>
+                <p className="text-sm text-muted-foreground mb-3 leading-relaxed line-clamp-2">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <Badge
+                      key={tag}
+                      variant="secondary"
+                      className="text-xs font-normal px-2 py-0.5"
+                    >
                       {tag}
                     </Badge>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </motion.a>
           ))}
         </div>
       </div>

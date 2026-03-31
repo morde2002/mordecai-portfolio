@@ -1,75 +1,178 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
+import { motion } from "framer-motion"
+import { ArrowDown } from "lucide-react"
 
-const roles = ["a Web Designer", "a Web Developer", "a Freelancer", "a Programmer"]
+const roles = ["Frontend Developer", "UI/UX Designer", "Full-Stack Builder", "Freelancer"]
 
 export function Hero() {
-  const [currentRole, setCurrentRole] = useState(0)
-  const [displayText, setDisplayText] = useState("")
+  const [roleIndex, setRoleIndex] = useState(0)
+  const [text, setText] = useState("")
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
-    const timeout = setTimeout(
-      () => {
-        const current = roles[currentRole]
+    const currentRole = roles[roleIndex]
+    const speed = isDeleting ? 40 : 80
 
-        if (isDeleting) {
-          setDisplayText(current.substring(0, displayText.length - 1))
+    if (!isDeleting && text === currentRole) {
+      const timeout = setTimeout(() => setIsDeleting(true), 2000)
+      return () => clearTimeout(timeout)
+    }
 
-          if (displayText === "") {
-            setIsDeleting(false)
-            setCurrentRole((prev) => (prev + 1) % roles.length)
-          }
-        } else {
-          setDisplayText(current.substring(0, displayText.length + 1))
+    if (isDeleting && text === "") {
+      setIsDeleting(false)
+      setRoleIndex((prev) => (prev + 1) % roles.length)
+      return
+    }
 
-          if (displayText === current) {
-            setTimeout(() => setIsDeleting(true), 2000)
-          }
-        }
-      },
-      isDeleting ? 50 : 100,
-    )
+    const timeout = setTimeout(() => {
+      setText(
+        isDeleting
+          ? currentRole.substring(0, text.length - 1)
+          : currentRole.substring(0, text.length + 1)
+      )
+    }, speed)
 
     return () => clearTimeout(timeout)
-  }, [currentRole, displayText, isDeleting])
+  }, [text, isDeleting, roleIndex])
 
   return (
-    <section
-      id="hero"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white relative overflow-hidden"
-    >
-      {/* Background Animation */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div className="absolute top-3/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden px-6">
+      {/* Decorative background shapes */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full bg-blue-400/5 blur-3xl" />
+        <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full bg-violet-300/5 blur-3xl" />
+
+        {/* Curved decorative lines */}
+        <svg
+          className="absolute top-0 right-0 w-[600px] h-[600px] text-primary/[0.04]"
+          viewBox="0 0 600 600"
+          fill="none"
+        >
+          <circle cx="400" cy="200" r="200" stroke="currentColor" strokeWidth="1" />
+          <circle cx="400" cy="200" r="280" stroke="currentColor" strokeWidth="1" />
+          <circle cx="400" cy="200" r="360" stroke="currentColor" strokeWidth="1" />
+        </svg>
+
+        {/* Dot grid */}
+        <div className="absolute bottom-20 left-10 grid grid-cols-5 gap-4 opacity-[0.08]">
+          {Array.from({ length: 25 }).map((_, i) => (
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-primary" />
+          ))}
+        </div>
       </div>
 
-      <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-            Mordecai Junior
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-slate-300">
-            I'm <span className="text-blue-400 font-semibold">{displayText}</span>
-            <span className="animate-pulse">|</span>
-          </p>
-          <div className="flex justify-center space-x-4">
+      <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
+        {/* Text content */}
+        <div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-sm uppercase tracking-widest text-muted-foreground mb-4"
+          >
+            Hello, I&apos;m
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-6"
+          >
+            Mordecai
+            <br />
+            <span className="text-primary">Mathenge</span>
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl md:text-2xl text-muted-foreground mb-10 h-8"
+          >
+            <span>I&apos;m a </span>
+            <span className="text-foreground font-medium">{text}</span>
+            <span className="animate-pulse text-primary">|</span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex items-center gap-4"
+          >
             <a
-              href="#about"
-              className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+              href="#portfolio"
+              className="px-7 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
             >
-              Learn More
+              View My Work
             </a>
             <a
               href="#contact"
-              className="border border-blue-400 hover:bg-blue-400 hover:text-slate-900 px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+              className="px-7 py-3 border border-border rounded-full text-sm font-medium text-foreground hover:bg-secondary transition-colors"
             >
               Get In Touch
             </a>
-          </div>
+          </motion.div>
         </div>
+
+        {/* Profile image with decorative elements */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="hidden lg:flex justify-center relative"
+        >
+          {/* Decorative ring */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-[380px] h-[380px] rounded-full border-2 border-dashed border-primary/15 animate-[spin_30s_linear_infinite]" />
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-[440px] h-[440px] rounded-full border border-primary/10" />
+          </div>
+
+          {/* Floating accent dots */}
+          <div className="absolute top-8 right-16 w-3 h-3 rounded-full bg-primary/30 animate-bounce" style={{ animationDelay: "0s", animationDuration: "3s" }} />
+          <div className="absolute bottom-16 left-12 w-2 h-2 rounded-full bg-violet-400/40 animate-bounce" style={{ animationDelay: "1s", animationDuration: "3.5s" }} />
+          <div className="absolute top-1/2 right-6 w-2.5 h-2.5 rounded-full bg-blue-400/30 animate-bounce" style={{ animationDelay: "0.5s", animationDuration: "4s" }} />
+
+          {/* Profile image */}
+          <div className="relative w-[320px] h-[320px] rounded-full overflow-hidden ring-4 ring-primary/10 ring-offset-4 ring-offset-background shadow-2xl shadow-primary/10">
+            <Image
+              src="/me.jpg"
+              alt="Mordecai Mathenge"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Scroll indicator */}
+      <motion.a
+        href="#about"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-foreground transition-colors"
+        aria-label="Scroll down"
+      >
+        <ArrowDown className="h-5 w-5 animate-bounce" />
+      </motion.a>
+
+      {/* Bottom curve */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 60" fill="none" className="w-full text-background">
+          <path
+            d="M0 60V30C240 0 480 0 720 15C960 30 1200 30 1440 15V60H0Z"
+            fill="currentColor"
+          />
+        </svg>
       </div>
     </section>
   )

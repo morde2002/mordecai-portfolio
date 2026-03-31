@@ -1,27 +1,29 @@
+import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
-import { Facts } from "@/components/facts"
+import { Highlights } from "@/components/highlights"
 import { Skills } from "@/components/skills"
 import { Resume } from "@/components/resume"
 import { Portfolio } from "@/components/portfolio"
 import { Services } from "@/components/services"
 import { Contact } from "@/components/contact"
-import { Sidebar } from "@/components/sidebar"
+import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      <Sidebar />
-      <main className="lg:ml-80">
+      <Navbar />
+      <main>
         <Hero />
         <About />
-        <Facts />
+        <Highlights />
         <Skills />
         <Resume />
         <Portfolio />
         <Services />
         <Contact />
       </main>
+      <Footer />
     </div>
   )
 }

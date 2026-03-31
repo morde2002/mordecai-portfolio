@@ -1,105 +1,123 @@
+"use client"
+
 import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Calendar, Globe, Phone, MapPin, Mail, User } from "lucide-react"
+import { motion } from "framer-motion"
+import { MapPin, Mail, Briefcase } from "lucide-react"
+
+const infoItems = [
+  { icon: MapPin, text: "Mombasa, Kenya" },
+  { icon: Mail, text: "mathengemordecai@gmail.com" },
+  { icon: Briefcase, text: "Available for Freelance" },
+]
 
 export function About() {
-  const personalInfo = [
-    { icon: Calendar, label: "Birthday", value: "30th July 2002" },
-    { icon: Globe, label: "Website", value: "edgeanimateux.vercel.app", link: "https://edgeanimateux.vercel.app/" },
-    { icon: Phone, label: "Phone", value: "+254 115 588218", link: "tel:+254115588218" },
-    { icon: MapPin, label: "City", value: "Mombasa, Kenya" },
-    { icon: User, label: "Age", value: "22" },
-    { icon: Mail, label: "Email", value: "mathengemordecai@gmail.com", link: "mailto:mathengemordecai@gmail.com" },
-  ]
-
   return (
-    <section id="about" className="py-20 bg-slate-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">About Me</h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            A dedicated front-end developer specializing in React.js, Next.js, and React Native, with a strong focus on building dynamic dashboards, world class websites, intuitive UI designs, and engaging app experiences..
-          </p>
-        </div>
+    <section id="about" className="py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <h2 className="text-3xl font-bold tracking-tight mb-2">About Me</h2>
+          <motion.div
+            className="w-12 h-1 bg-primary rounded-full"
+            initial={{ width: 0 }}
+            whileInView={{ width: 48 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            viewport={{ once: true }}
+          />
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative">
-            <div className="relative w-full max-w-md mx-auto">
+        <div className="grid md:grid-cols-[300px_1fr] gap-12 items-start">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="group"
+          >
+            <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
               <Image
-                src="/me.jpg?height=500&width=400"
-                alt="Mordecai Junior"
-                width={400}
-                height={500}
-                className="rounded-2xl shadow-2xl"
+                src="/me.jpg"
+                alt="Mordecai Mathenge"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                priority
               />
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">5+</span>
-              </div>
+              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500" />
             </div>
-          </div>
+          </motion.div>
 
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-3xl font-bold text-slate-900 mb-4">Front-End Developer & UI Specialist</h3>
-              <p className="text-slate-600 mb-6 leading-relaxed">
-                As a front-end developer specializing in React.js, Next.js, and React Native, 
-                I bring interfaces to life through responsive dashboards and seamless app designs. 
-                I'm driven by a passion for clean code and captivating user experiences. 
-                Continuously exploring the latest tech trends, I ensure every project is 
-                modern, performant, and user-focused.
-              </p>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <motion.p
+              className="text-lg font-medium text-foreground"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Frontend Developer &amp; UI/UX Designer
+            </motion.p>
+
+            <motion.p
+              className="text-muted-foreground leading-relaxed"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              I&apos;m a frontend developer with a strong UX/UI design foundation, actively
+              transitioning to full-stack development. Currently at{" "}
+              <span className="text-foreground font-medium">LogixFleet</span>, I build
+              AI-powered fleet management dashboards and customer portals using React.js
+              and Next.js. I also run{" "}
+              <span className="text-foreground font-medium">XeleratedTech Inc</span>, a
+              web agency delivering custom websites and digital solutions for clients across Kenya.
+            </motion.p>
+
+            <motion.p
+              className="text-muted-foreground leading-relaxed"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              My journey started during my IT diploma at Mount Kenya University, where I
+              discovered my passion for building intuitive web experiences. Through internships
+              at ICT Authority, Light International School, and Kenya Petroleum Refineries,
+              I honed both my technical and problem-solving skills before diving fully into
+              frontend development and design.
+            </motion.p>
+
+            <div className="grid sm:grid-cols-3 gap-4 pt-4">
+              {infoItems.map((item, index) => {
+                const Icon = item.icon
+                return (
+                  <motion.div
+                    key={item.text}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ x: 4 }}
+                    className="flex items-center gap-3 text-sm cursor-default"
+                  >
+                    <Icon className="h-4 w-4 text-primary shrink-0" />
+                    <span className="text-muted-foreground">{item.text}</span>
+                  </motion.div>
+                )
+              })}
             </div>
-
-            <Card>
-              <CardContent className="p-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  {personalInfo.map((info, index) => {
-                    const Icon = info.icon
-                    return (
-                      <div key={index} className="flex items-center space-x-3">
-                        <Icon className="h-5 w-5 text-blue-600 flex-shrink-0" />
-                        <div>
-                          <span className="font-semibold text-slate-900">{info.label}:</span>
-                          {info.link ? (
-                            <a
-                              href={info.link}
-                              className="ml-2 text-blue-600 hover:text-blue-800 transition-colors"
-                              target={info.link.startsWith("http") ? "_blank" : undefined}
-                              rel={info.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                            >
-                              {info.value}
-                            </a>
-                          ) : (
-                            <span className="ml-2 text-slate-600">{info.value}</span>
-                          )}
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-              </CardContent>
-            </Card>
-
-            <div>
-              <p className="text-slate-600 leading-relaxed">
-                I take pride in designing visually engaging, intuitive, and responsive user interfaces. 
-                With a strong foundation in React.js, Next.js, and React Native, 
-                I build seamless web and mobile experiences that prioritize performance and usability. 
-                From dynamic dashboards to interactive app designs, I focus on delivering clean, scalable code 
-                that brings ideas to life with precision and creativity.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="secondary" className="px-3 py-1">
-                Available for Freelance
-              </Badge>
-              <Badge variant="outline" className="px-3 py-1">
-                5+ Years Experience
-              </Badge>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

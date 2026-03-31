@@ -1,50 +1,90 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
+"use client"
 
-const skills = [
-  { name: "React.js", level: 95 },
-  { name: "Next.js", level: 90 },
-  { name: "React Native", level: 85 },
-  { name: "JavaScript (ES6+)", level: 90 },
-  { name: "HTML5", level: 100 },
-  { name: "CSS3 / Tailwind CSS", level: 95 },
-  { name: "Node.js (Backend)", level: 80 },
-  { name: "MongoDB", level: 75 },
-  { name: "Git & Version Control", level: 85 },
-  { name: "Figma to Code", level: 80 },
-  { name: "WordPress / CMS", level: 75 },
-  { name: "Photoshop (UI Assets)", level: 60 },
+import { motion } from "framer-motion"
+import { Badge } from "@/components/ui/badge"
+
+const skillCategories = [
+  {
+    title: "Frontend",
+    skills: ["React.js", "Next.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap"],
+  },
+  {
+    title: "Backend",
+    skills: ["Django", "Python", "Node.js", "PHP", "REST APIs"],
+  },
+  {
+    title: "Mobile",
+    skills: ["React Native"],
+  },
+  {
+    title: "Database",
+    skills: ["PostgreSQL", "MongoDB", "MySQL"],
+  },
+  {
+    title: "Design",
+    skills: ["Figma", "UI/UX Design", "Wireframing", "Prototyping"],
+  },
+  {
+    title: "Tools",
+    skills: ["Git", "GitHub", "Vercel", "VS Code", "CI/CD", "WebSocket"],
+  },
 ]
-
-
 
 export function Skills() {
   return (
-    <section className="py-20 bg-slate-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">Skills</h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            I excel in crafting seamless user experiences through innovative front-end design and robust back-end
-            development
-          </p>
-        </div>
+    <section id="skills" className="py-24 px-6">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <h2 className="text-3xl font-bold tracking-tight mb-2">Skills</h2>
+          <motion.div
+            className="h-1 bg-primary rounded-full"
+            initial={{ width: 0 }}
+            whileInView={{ width: 48 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            viewport={{ once: true }}
+          />
+        </motion.div>
 
-        <Card className="max-w-4xl mx-auto">
-          <CardContent className="p-8">
-            <div className="grid md:grid-cols-2 gap-8">
-              {skills.map((skill, index) => (
-                <div key={index} className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="font-semibold text-slate-900">{skill.name}</span>
-                    <span className="text-blue-600 font-bold">{skill.level}%</span>
-                  </div>
-                  <Progress value={skill.level} className="h-3" />
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skillCategories.map((category, catIndex) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: catIndex * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                {category.title}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill, skillIndex) => (
+                  <motion.div
+                    key={skill}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: catIndex * 0.1 + skillIndex * 0.05 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                  >
+                    <Badge
+                      variant="secondary"
+                      className="px-3 py-1.5 text-sm font-normal cursor-default transition-colors hover:bg-primary/10 hover:text-primary"
+                    >
+                      {skill}
+                    </Badge>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )

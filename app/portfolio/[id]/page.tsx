@@ -1,30 +1,29 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, ExternalLink, Calendar, User, Globe } from "lucide-react"
+import { ArrowLeft, ExternalLink } from "lucide-react"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 
-// This would typically come from a database or API
 const portfolioDetails = {
   id: "1",
   title: "XeleratedTech Website",
   category: "Web Design",
   client: "XeleratedTech Company",
-  date: "01 March, 2024",
+  date: "March 2024",
   url: "https://xeleratedtech.com",
   description: `This project represents a comprehensive web design and development solution for XeleratedTech, a cutting-edge technology company. The website showcases modern design principles with a focus on user experience and responsive functionality.
 
 The design incorporates clean lines, strategic use of whitespace, and a carefully curated color palette that reflects the company's innovative approach to technology solutions. The site features smooth animations, interactive elements, and optimized performance across all devices.
 
-Key features include a dynamic portfolio showcase, integrated contact forms, and a content management system that allows the client to easily update their services and case studies. The website successfully positions XeleratedTech as a leader in their industry while providing an intuitive user experience for potential clients.`,
+Key features include a dynamic portfolio showcase, integrated contact forms, and a content management system that allows the client to easily update their services and case studies.`,
   images: [
-    "/portfolio1.png?height=600&width=800",
-    "/portfolio2.png?height=600&width=800",
-    "/portfolio3.png?height=600&width=800",
-    "/portfolio4.png?height=600&width=800",
-    "/portfolio5.png?height=600&width=800",
-    "/portfolio6.png?height=600&width=800",
+    "/portfolio1.png",
+    "/portfolio2.png",
+    "/portfolio3.png",
+    "/portfolio4.png",
+    "/portfolio5.png",
+    "/portfolio6.png",
   ],
   technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Framer Motion"],
   features: [
@@ -40,185 +39,126 @@ Key features include a dynamic portfolio showcase, integrated contact forms, and
 export default function PortfolioDetails() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="bg-slate-900 text-white py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
+      <Navbar />
+
+      <main className="pt-24 pb-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
+            <Link href="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
+            <span>/</span>
+            <Link href="/#portfolio" className="hover:text-foreground transition-colors">
+              Portfolio
+            </Link>
+            <span>/</span>
+            <span className="text-foreground">{portfolioDetails.title}</span>
+          </div>
+
+          {/* Title */}
+          <div className="flex items-start justify-between gap-4 mb-8">
             <div>
-              <h1 className="text-3xl font-bold mb-2">Portfolio Details</h1>
-              <nav className="flex items-center space-x-2 text-slate-300">
-                <Link href="/" className="hover:text-white transition-colors">
-                  Home
-                </Link>
-                <span>/</span>
-                <span>Portfolio Details</span>
-              </nav>
+              <h1 className="text-3xl font-bold tracking-tight mb-2">
+                {portfolioDetails.title}
+              </h1>
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="text-sm text-muted-foreground">{portfolioDetails.category}</span>
+                <span className="text-muted-foreground">·</span>
+                <span className="text-sm text-muted-foreground">{portfolioDetails.date}</span>
+              </div>
             </div>
-            <Button variant="outline" asChild>
-              <Link href="/#portfolio">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Portfolio
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-12">
-            {/* Image Gallery */}
-            <div className="lg:col-span-2">
-              <Card>
-                <CardContent className="p-0">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
-                    {portfolioDetails.images.map((image, index) => (
-                      <div key={index} className="relative aspect-video overflow-hidden rounded-lg">
-                        <Image
-                          src={image || "/placeholder.svg"}
-                          alt={`${portfolioDetails.title} screenshot ${index + 1}`}
-                          fill
-                          className="object-cover hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Project Information */}
-            <div className="space-y-8">
-              {/* Project Info Card */}
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">Project Information</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                        <Globe className="h-4 w-4 text-blue-600" />
-                      </div>
-                      <div>
-                        <span className="font-semibold text-slate-900">Category:</span>
-                        <p className="text-slate-600">{portfolioDetails.category}</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                        <User className="h-4 w-4 text-blue-600" />
-                      </div>
-                      <div>
-                        <span className="font-semibold text-slate-900">Client:</span>
-                        <p className="text-slate-600">{portfolioDetails.client}</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                        <Calendar className="h-4 w-4 text-blue-600" />
-                      </div>
-                      <div>
-                        <span className="font-semibold text-slate-900">Project Date:</span>
-                        <p className="text-slate-600">{portfolioDetails.date}</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                        <ExternalLink className="h-4 w-4 text-blue-600" />
-                      </div>
-                      <div>
-                        <span className="font-semibold text-slate-900">Project URL:</span>
-                        <Link
-                          href={portfolioDetails.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-800 transition-colors"
-                        >
-                          Visit Website
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Technologies Used */}
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">Technologies Used</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {portfolioDetails.technologies.map((tech, index) => (
-                      <Badge key={index} variant="secondary">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Key Features */}
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">Key Features</h3>
-                  <ul className="space-y-2">
-                    {portfolioDetails.features.map((feature, index) => (
-                      <li key={index} className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                        <span className="text-slate-600">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-
-              {/* CTA Button */}
-              <Button className="w-full" asChild>
-                <Link href={portfolioDetails.url} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  View Live Project
-                </Link>
-              </Button>
-            </div>
+            {portfolioDetails.url !== "#" && (
+              <a
+                href={portfolioDetails.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity flex items-center gap-2"
+              >
+                <ExternalLink className="h-4 w-4" />
+                Visit Site
+              </a>
+            )}
           </div>
 
-          {/* Project Description */}
-          <Card className="mt-12">
-            <CardContent className="p-8">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">{portfolioDetails.title}</h2>
-              <div className="prose prose-slate max-w-none">
+          {/* Image Gallery */}
+          <div className="grid md:grid-cols-2 gap-4 mb-12">
+            {portfolioDetails.images.map((image, index) => (
+              <div key={index} className="relative aspect-video rounded-xl overflow-hidden border border-border">
+                <Image
+                  src={image}
+                  alt={`${portfolioDetails.title} screenshot ${index + 1}`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Content */}
+          <div className="grid lg:grid-cols-[1fr_280px] gap-12">
+            <div>
+              <h2 className="text-lg font-semibold mb-4">About the Project</h2>
+              <div className="space-y-4">
                 {portfolioDetails.description.split("\n\n").map((paragraph, index) => (
-                  <p key={index} className="text-slate-600 leading-relaxed mb-4">
+                  <p key={index} className="text-muted-foreground leading-relaxed">
                     {paragraph}
                   </p>
                 ))}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                  Technologies
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {portfolioDetails.technologies.map((tech) => (
+                    <Badge key={tech} variant="secondary" className="font-normal">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                  Key Features
+                </h3>
+                <ul className="space-y-2">
+                  {portfolioDetails.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                  Client
+                </h3>
+                <p className="text-sm text-foreground">{portfolioDetails.client}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Back link */}
+          <div className="mt-12 pt-8 border-t border-border">
+            <Link
+              href="/#portfolio"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to all projects
+            </Link>
+          </div>
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-slate-900 text-white py-8 mt-20">
-        <div className="container mx-auto px-4 text-center">
-          <p className="mb-2">
-            &copy; Copyright <strong>Mordecai's Portfolio</strong>
-          </p>
-          <p className="text-slate-400">
-            Designed by{" "}
-            <Link
-              href="https://xeleratedtech.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              Mordecai Junior
-            </Link>
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
