@@ -34,18 +34,18 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 px-6">
+    <section id="contact" className="py-20 sm:py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-12 text-center"
         >
           <h2 className="text-3xl font-bold tracking-tight mb-2">Contact</h2>
           <motion.div
-            className="h-1 bg-primary rounded-full"
+            className="h-1 bg-primary rounded-full mx-auto"
             initial={{ width: 0 }}
             whileInView={{ width: 48 }}
             transition={{ duration: 0.4, delay: 0.2 }}
@@ -53,28 +53,28 @@ export function Contact() {
           />
         </motion.div>
 
-        <div className="grid lg:grid-cols-[1fr_1.5fr] gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-12">
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-6 text-center lg:text-left"
           >
             <p className="text-muted-foreground leading-relaxed">
               Have a project in mind or want to collaborate? Feel free to reach out.
               I&apos;m always open to discussing new opportunities.
             </p>
 
-            <div className="space-y-3">
+            <div className="space-y-3 flex flex-col items-center lg:items-start">
               {contactInfo.map((item, index) => {
                 const Icon = item.icon
                 const content = (
                   <motion.div
                     key={item.text}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ x: 6 }}
@@ -100,13 +100,13 @@ export function Contact() {
           {/* Form */}
           <motion.form
             onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
             className="space-y-5"
           >
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <motion.div
                 className="space-y-2"
                 initial={{ opacity: 0, y: 10 }}
@@ -186,6 +186,7 @@ export function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.6 }}
               viewport={{ once: true }}
+              className="text-center lg:text-left"
             >
               <Button type="submit" className="w-full sm:w-auto px-8 rounded-full gap-2">
                 Send Message

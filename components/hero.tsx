@@ -48,7 +48,7 @@ export function Hero() {
 
         {/* Curved decorative lines */}
         <svg
-          className="absolute top-0 right-0 w-[600px] h-[600px] text-primary/[0.04]"
+          className="absolute top-0 right-0 w-[600px] h-[600px] text-primary/[0.04] hidden sm:block"
           viewBox="0 0 600 600"
           fill="none"
         >
@@ -58,7 +58,7 @@ export function Hero() {
         </svg>
 
         {/* Dot grid */}
-        <div className="absolute bottom-20 left-10 grid grid-cols-5 gap-4 opacity-[0.08]">
+        <div className="absolute bottom-20 left-10 grid grid-cols-5 gap-4 opacity-[0.08] hidden sm:grid">
           {Array.from({ length: 25 }).map((_, i) => (
             <div key={i} className="w-1.5 h-1.5 rounded-full bg-primary" />
           ))}
@@ -66,8 +66,8 @@ export function Hero() {
       </div>
 
       <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
-        {/* Text content */}
-        <div>
+        {/* Text content — centered on mobile, left on desktop */}
+        <div className="text-center lg:text-left">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-6"
           >
             Mordecai
             <br />
@@ -92,35 +92,53 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-10 h-8"
+            className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-10 h-8"
           >
             <span>I&apos;m a </span>
             <span className="text-foreground font-medium">{text}</span>
             <span className="animate-pulse text-primary">|</span>
           </motion.div>
 
+          {/* Mobile profile image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex justify-center mb-10 lg:hidden"
+          >
+            <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden ring-4 ring-primary/10 ring-offset-4 ring-offset-background shadow-xl shadow-primary/10">
+              <Image
+                src="/me.jpg"
+                alt="Mordecai Mathenge"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex items-center gap-4"
+            className="flex items-center justify-center lg:justify-start gap-3 sm:gap-4"
           >
             <a
               href="#portfolio"
-              className="px-7 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+              className="px-5 sm:px-7 py-3 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
             >
               View My Work
             </a>
             <a
               href="#contact"
-              className="px-7 py-3 border border-border rounded-full text-sm font-medium text-foreground hover:bg-secondary transition-colors"
+              className="px-5 sm:px-7 py-3 border border-border rounded-full text-sm font-medium text-foreground hover:bg-secondary transition-colors"
             >
               Get In Touch
             </a>
           </motion.div>
         </div>
 
-        {/* Profile image with decorative elements */}
+        {/* Desktop profile image with decorative elements */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}

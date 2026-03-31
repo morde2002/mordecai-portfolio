@@ -12,18 +12,18 @@ const infoItems = [
 
 export function About() {
   return (
-    <section id="about" className="py-24 px-6">
+    <section id="about" className="py-20 sm:py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-12 text-center md:text-left"
         >
           <h2 className="text-3xl font-bold tracking-tight mb-2">About Me</h2>
           <motion.div
-            className="w-12 h-1 bg-primary rounded-full"
+            className="h-1 bg-primary rounded-full mx-auto md:mx-0"
             initial={{ width: 0 }}
             whileInView={{ width: 48 }}
             transition={{ duration: 0.4, delay: 0.2 }}
@@ -31,15 +31,15 @@ export function About() {
           />
         </motion.div>
 
-        <div className="grid md:grid-cols-[300px_1fr] gap-12 items-start">
+        <div className="grid md:grid-cols-[280px_1fr] gap-10 md:gap-12 items-start">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="group"
+            className="group flex justify-center md:justify-start"
           >
-            <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
+            <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-full md:aspect-square rounded-2xl overflow-hidden">
               <Image
                 src="/me.jpg"
                 alt="Mordecai Mathenge"
@@ -52,11 +52,11 @@ export function About() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-6 text-center md:text-left"
           >
             <motion.p
               className="text-lg font-medium text-foreground"
@@ -98,7 +98,7 @@ export function About() {
               frontend development and design.
             </motion.p>
 
-            <div className="grid sm:grid-cols-3 gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4">
               {infoItems.map((item, index) => {
                 const Icon = item.icon
                 return (

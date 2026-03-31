@@ -63,18 +63,18 @@ const education = [
 
 export function Resume() {
   return (
-    <section id="resume" className="py-24 mt-10 mb-10 px-6 bg-secondary/50 section-curve-top section-curve-bottom">
+    <section id="resume" className="py-20 sm:py-24 mt-10 mb-10 px-6 bg-secondary/50 section-curve-top section-curve-bottom">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-12 text-center"
         >
           <h2 className="text-3xl font-bold tracking-tight mb-2">Resume</h2>
           <motion.div
-            className="h-1 bg-primary rounded-full"
+            className="h-1 bg-primary rounded-full mx-auto"
             initial={{ width: 0 }}
             whileInView={{ width: 48 }}
             transition={{ duration: 0.4, delay: 0.2 }}
@@ -84,7 +84,7 @@ export function Resume() {
 
         {/* Experience */}
         <div className="mb-16">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-8">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-8 text-center sm:text-left">
             Experience
           </h3>
           <div className="space-y-0 border-l-2 border-border ml-3">
@@ -95,21 +95,21 @@ export function Resume() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="relative pl-8 pb-10 last:pb-0"
+                className="relative pl-6 sm:pl-8 pb-10 last:pb-0"
               >
                 <div className="absolute left-[-5px] top-1 w-2.5 h-2.5 rounded-full bg-primary" />
-                <div className="flex flex-wrap items-center gap-2 mb-1">
-                  <h4 className="text-lg font-semibold text-foreground">{item.title}</h4>
-                  <span className="text-muted-foreground">at</span>
-                  <span className="text-primary font-medium">{item.company}</span>
+                <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-1 sm:gap-2 mb-1">
+                  <h4 className="text-base sm:text-lg font-semibold text-foreground">{item.title}</h4>
+                  <span className="hidden sm:inline text-muted-foreground">at</span>
+                  <span className="text-primary font-medium text-sm sm:text-base">{item.company}</span>
                 </div>
-                <div className="flex flex-wrap items-center gap-3 mb-3">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3">
                   <Badge variant="outline" className="font-normal text-xs">
                     {item.period}
                   </Badge>
                   <span className="text-xs text-muted-foreground">{item.location}</span>
                 </div>
-                <p className="text-muted-foreground text-sm leading-relaxed max-w-2xl">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   {item.description}
                 </p>
               </motion.div>
@@ -119,7 +119,7 @@ export function Resume() {
 
         {/* Education */}
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-8">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-8 text-center sm:text-left">
             Education
           </h3>
           <div className="space-y-0 border-l-2 border-border ml-3">
@@ -130,11 +130,11 @@ export function Resume() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="relative pl-8 pb-10 last:pb-0"
+                className="relative pl-6 sm:pl-8 pb-10 last:pb-0"
               >
                 <div className="absolute left-[-5px] top-1 w-2.5 h-2.5 rounded-full bg-primary" />
-                <h4 className="text-lg font-semibold text-foreground mb-1">{item.degree}</h4>
-                <div className="flex flex-wrap items-center gap-3 mb-1">
+                <h4 className="text-base sm:text-lg font-semibold text-foreground mb-1">{item.degree}</h4>
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1">
                   <span className="text-primary font-medium text-sm">{item.institution}</span>
                   <Badge variant="outline" className="font-normal text-xs">
                     {item.period}

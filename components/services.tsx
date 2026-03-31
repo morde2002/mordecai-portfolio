@@ -38,18 +38,18 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="py-24 mt-10 mb-10 px-6 bg-secondary/50 section-curve-top section-curve-bottom">
+    <section id="services" className="py-20 sm:py-24 mt-10 mb-10 px-6 bg-secondary/50 section-curve-top section-curve-bottom">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-12 text-center"
         >
           <h2 className="text-3xl font-bold tracking-tight mb-2">Services</h2>
           <motion.div
-            className="h-1 bg-primary rounded-full"
+            className="h-1 bg-primary rounded-full mx-auto"
             initial={{ width: 0 }}
             whileInView={{ width: 48 }}
             transition={{ duration: 0.4, delay: 0.2 }}
@@ -57,7 +57,7 @@ export function Services() {
           />
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
@@ -67,9 +67,9 @@ export function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 viewport={{ once: true }}
-                className="p-6 rounded-2xl border border-border bg-background hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 transition-all duration-300"
+                className="p-6 rounded-2xl border border-border bg-background hover:border-primary/30 hover:shadow-md hover:shadow-primary/5 transition-all duration-300 text-center"
               >
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 mx-auto">
                   <Icon className="h-5 w-5 text-primary" />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">{service.title}</h3>

@@ -64,18 +64,18 @@ const projects = [
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="py-24 px-6">
+    <section id="portfolio" className="py-20 sm:py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-12 text-center"
         >
           <h2 className="text-3xl font-bold tracking-tight mb-2">Portfolio</h2>
           <motion.div
-            className="h-1 bg-primary rounded-full"
+            className="h-1 bg-primary rounded-full mx-auto"
             initial={{ width: 0 }}
             whileInView={{ width: 48 }}
             transition={{ duration: 0.4, delay: 0.2 }}
@@ -83,7 +83,7 @@ export function Portfolio() {
           />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {projects.map((project, index) => (
             <motion.a
               key={project.title}
@@ -96,7 +96,7 @@ export function Portfolio() {
               viewport={{ once: true }}
               className="group block rounded-2xl border border-border overflow-hidden bg-background hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-44 sm:h-48 overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -114,12 +114,12 @@ export function Portfolio() {
                   </Badge>
                 </div>
               </div>
-              <div className="p-5">
-                <h3 className="font-semibold text-foreground mb-1.5">{project.title}</h3>
-                <p className="text-sm text-muted-foreground mb-3 leading-relaxed line-clamp-2">
+              <div className="p-4 sm:p-5 text-center">
+                <h3 className="font-semibold text-foreground mb-1.5 text-sm sm:text-base">{project.title}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground mb-3 leading-relaxed line-clamp-2">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap justify-center gap-1.5">
                   {project.tags.map((tag) => (
                     <Badge
                       key={tag}
