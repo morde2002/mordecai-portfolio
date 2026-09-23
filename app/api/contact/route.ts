@@ -24,11 +24,18 @@ export async function POST(request: Request) {
 
     const callMeBotUrl = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phone)}&text=${encodeURIComponent(text)}&apikey=${encodeURIComponent(apiKey)}`
 
-    const response = await fetch(callMeBotUrl)
+    const response = await fetch(callMeBotUrl, { cache: "no-store" })
+    const providerMessage = (await response.text()).trim()
+    const lowerProviderMessage = providerMessage.toLowerCase()
+    const providerReportedError =
+      lowerProviderMessage.includes("error") ||
+      lowerProviderMessage.includes("invalid") ||
+      lowerProviderMessage.includes("failed") ||
+      lowerProviderMessage.includes("not found")
 
-    if (!response.ok) {
+    if (!response.ok || providerReportedError) {
       return Response.json(
-        { error: "Failed to send WhatsApp message." },
+        { error: "CallMeBot could not send the WhatsApp message." },
         { status: 502 }
       )
     }
