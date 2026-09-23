@@ -7,7 +7,7 @@ const experience = [
   {
     title: "Frontend Developer",
     company: "LogixFleet",
-    period: "April 2025 \u2014 Present",
+    period: "April 2025 - Present",
     location: "Nairobi, Kenya",
     description:
       "Building AI-powered fleet management SaaS platform. Developed responsive dashboards and customer portals using React.js and Next.js. Implemented real-time vehicle tracking with WebSocket and interactive mapping. Built and deployed the Siphyy Driver mobile app.",
@@ -15,7 +15,7 @@ const experience = [
   {
     title: "Founder & Lead Developer",
     company: "XeleratedTech Inc",
-    period: "June 2023 \u2014 Present",
+    period: "June 2023 - Present",
     location: "Remote",
     description:
       "Running a web agency delivering custom websites and web applications. Designed and developed sites for clients including ALMA martial arts academy, Baraka Mining, and Texol Energy. Full-stack solutions using React, Next.js, Node.js, and various CMS platforms.",
@@ -23,7 +23,7 @@ const experience = [
   {
     title: "IT Technician",
     company: "Light International School",
-    period: "March 2024 \u2014 September 2024",
+    period: "March 2024 - September 2024",
     location: "Mombasa, Kenya",
     description:
       "Managed school network infrastructure including routers, switches, and wireless access points. Provided technical support and trained staff on IT systems and cybersecurity best practices.",
@@ -31,7 +31,7 @@ const experience = [
   {
     title: "IT Assistant & Web Developer",
     company: "ICT Authority",
-    period: "June 2023 \u2014 September 2023",
+    period: "June 2023 - September 2023",
     location: "Mombasa, Kenya",
     description:
       "Developed and maintained government websites. Operated and maintained network infrastructure for Uhuru na Kazi building. Managed help desk tickets and server room operations.",
@@ -39,7 +39,7 @@ const experience = [
   {
     title: "IT Support Technician",
     company: "Kenya Petroleum Refineries Limited",
-    period: "January 2023 \u2014 April 2023",
+    period: "January 2023 - April 2023",
     location: "Mombasa, Kenya",
     description:
       "Installation, configuration, and maintenance of computer systems. Supported SUN, e-horizon, SAP and LIMS systems. Provided helpdesk and technical support.",
@@ -50,13 +50,13 @@ const education = [
   {
     degree: "Diploma in Information & Technology",
     institution: "Mount Kenya University",
-    period: "2021 \u2014 2023",
+    period: "2021 - 2023",
     note: "Credit 1 (Honors)",
   },
   {
     degree: "Kenya Certificate of Secondary Education",
     institution: "Mombasa Baptist High School",
-    period: "2016 \u2014 2019",
+    period: "2016 - 2019",
     note: "",
   },
 ]
