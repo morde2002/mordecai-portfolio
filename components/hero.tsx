@@ -66,7 +66,7 @@ export function Hero() {
       </div>
 
       <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
-        {/* Text content — centered on mobile, left on desktop */}
+        {/* Text content - centered on mobile, left on desktop */}
         <div className="text-center lg:text-left">
           <motion.p
             initial={{ opacity: 0, y: 20 }}

@@ -22,7 +22,7 @@ const highlights = [
   {
     icon: FolderKanban,
     title: "6+ Projects Delivered",
-    description: "From ALMA to Baraka Mining \u2014 real-world solutions for real clients",
+    description: "From ALMA to Baraka Mining - real-world solutions for real clients",
   },
 ]
 

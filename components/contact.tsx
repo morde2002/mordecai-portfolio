@@ -22,15 +22,48 @@ export function Contact() {
     subject: "",
     message: "",
   })
+  const [status, setStatus] = useState("")
+  const [error, setError] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const mailtoLink = `mailto:mathengemordecai@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`)}`
-    window.location.href = mailtoLink
+    setIsSubmitting(true)
+    setError("")
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || "Message could not be sent.")
+      }
+
+      setStatus("Your message was sent via WhatsApp.")
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      })
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    if (status) setStatus("")
+    if (error) setError("")
   }
 
   return (
@@ -188,10 +221,16 @@ export function Contact() {
               viewport={{ once: true }}
               className="text-center lg:text-left"
             >
-              <Button type="submit" className="w-full sm:w-auto px-8 rounded-full gap-2">
-                Send Message
+              <Button type="submit" className="w-full sm:w-auto px-8 rounded-full gap-2" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"}
                 <Send className="h-4 w-4" />
               </Button>
+              {status && (
+                <p className="mt-3 text-sm text-green-600 dark:text-green-400">{status}</p>
+              )}
+              {error && (
+                <p className="mt-3 text-sm text-red-600 dark:text-red-400">{error}</p>
+              )}
             </motion.div>
           </motion.form>
         </div>
